@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import FilterBar from '../common/FilterBar';
-import SearchButton from '../common/SearchButton';
+import FilterBar from '../../../common/FilterBar';
+import SearchButton from '../../../common/SearchButton';
+import Label from '../../../common/Label';
+import YearPicker from '../../../common/YearPicker';
+import CategorySelect from '../../../common/CategorySelect';
 
 const FilterGroup = styled.div`
   display: flex;
@@ -9,22 +12,10 @@ const FilterGroup = styled.div`
   gap: 8px;
 `;
 
-const YearPicker = styled.input.attrs({ type: 'date' })`
-  width: 150px;
-  padding: 8px;
-`;
-
-const CategorySelect = styled.select`
-  width: 120px;
-  padding: 8px;
-`;
-
-const Label = styled.span`
-  font-weight: 500;
-  min-width: 80px;
-`;
 
 const CostTableFilter = ({ year, setYear, category, setCategory, onSearch }) => {
+  const categoryOptions = ['전체', '건진', '일반'];
+
   return (
     <FilterBar>
       <FilterGroup>
@@ -33,11 +24,11 @@ const CostTableFilter = ({ year, setYear, category, setCategory, onSearch }) => 
       </FilterGroup>
       <FilterGroup>
         <Label>건진구분</Label>
-        <CategorySelect value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option>전체</option>
-          <option>건진</option>
-          <option>일반</option>
-        </CategorySelect>
+        <CategorySelect 
+          value={category} 
+          onChange={(e) => setCategory(e.target.value)} 
+          options={categoryOptions} 
+        />
       </FilterGroup>
       <SearchButton onClick={onSearch}>조회</SearchButton>
     </FilterBar>

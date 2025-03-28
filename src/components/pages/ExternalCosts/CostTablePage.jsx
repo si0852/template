@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import CostTable from './CostTable';
 import styled from 'styled-components';
-import PageTitle from '../common/PageTitle';
+import PageTitle from '../../../common/PageTitle';
+import RealGrid from './RealGrid/RealGrid';
 import CostTableFilter from './CostTableFilter';
 
 const PageWrapper = styled.div`
@@ -17,10 +18,10 @@ const ContentArea = styled.div`
 const CostTablePage = () => {
   const [year, setYear] = useState(Date.now());
   const [category, setCategory] = useState('전체');
-
   const handleSearch = () => {
-    console.log('조회', year, category);
   };
+
+  const gridRef = useRef(null);
 
   return (
     <PageWrapper>
@@ -34,7 +35,8 @@ const CostTablePage = () => {
       />
 
       <ContentArea>
-        <CostTable />
+        <RealGrid/>
+        {/* <CostTable /> */}
       </ContentArea>
     </PageWrapper>
   );

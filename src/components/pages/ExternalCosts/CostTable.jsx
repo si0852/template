@@ -1,7 +1,7 @@
 import React from 'react';
-import TableContainer from '../common/TableContainer'
+import TableContainer from '../../../common/TableContainer'
 import TableRowGroup from './TableRowGroup';
-import { StyledTable } from '../styles/tableStyle';
+import { StyledTable } from '../../../styles/tableStyle';
 
 const data = [
   {
