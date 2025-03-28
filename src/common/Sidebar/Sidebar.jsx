@@ -79,8 +79,8 @@ const Sidebar = () => {
           </StyledLink>
         </MenuItem>
         <MenuItem>
-          <StyledLink to="/loyalty-cards">
-            <FaCreditCard /> {isOpenValue && 'Loyalty Cards'}
+          <StyledLink to="/personnelstatus">
+            <FaCreditCard /> {isOpenValue && '65번'}
           </StyledLink>
         </MenuItem>
         <MenuItem>
